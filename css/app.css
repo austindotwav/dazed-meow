@@ -93,15 +93,50 @@ body {
     text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
 }
 
+.frosted-input {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.75em 1em;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 1em;
+}
+
+.frosted-input::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+    transition: color 0.3s ease;
+}
+
+.frosted-input:hover,
+.frosted-input:focus {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: white;
+    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2);
+}
+.frosted-input:hover::placeholder,
+.frosted-input:focus::placeholder {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
 .glass-frame {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100px;
-    padding: 0.5rem;
+    padding: 1rem;
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(0, 0, 0, 0.20);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -191,6 +226,38 @@ body {
     color: white;
     text-align: center;
 }
+.frosted-button-single {
+    display: inline-block;
+    padding: 0.6em 1.4em;
+    border-radius: 50px;
+    background-color: rgba(0, 0, 0, 0.20);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    background-clip: padding-box;
+    transition: all 0.3s ease;
+    overflow: hidden;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none; /* in case it's an <a> */
+}
+
+.frosted-button-single:hover {
+    transform: translateY(-3px) scale(1.02);
+    background-color: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.frosted-button-single.active {
+    background-color: rgba(255, 255, 255, 0.85);
+    color: rgba(0, 0, 0, 0.85);
+}
+
 .frosted-button-wrapper {
     display: inline-block;
     border-radius: 50px;
