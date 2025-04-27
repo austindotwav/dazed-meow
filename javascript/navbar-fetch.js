@@ -6,21 +6,21 @@ fetch('/navbar.html')
     .then(html => {
         document.getElementById('navbar').innerHTML = html;
 
-        // AFTER navbar is loaded, now check all links inside
+        // check nav links
         const links = document.querySelectorAll('#navbar a');
 
         links.forEach(link => {
             const url = link.getAttribute('href');
 
-            // Skip checking empty or hash links
+            // skip link check for hash links
             if (!url || url.startsWith('#')) return;
 
             fetch(url)
                 .then(res => {
                     if (!res.ok) {
                         console.warn(`Broken link detected: ${url}`);
-                        link.style.pointerEvents = 'none'; // Disable clicking
-                        link.style.opacity = '0.5';        // Grey it out
+                        link.style.pointerEvents = 'none'; // disable click
+                        link.style.opacity = '0.5';        // grey  out
                         link.title = 'Page not available';
                         link.innerText += ' (Unavailable)';
                     }
