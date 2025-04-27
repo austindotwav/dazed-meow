@@ -57,7 +57,6 @@ body {
     padding-top: 70px;
     padding-left: 4rem;
     padding-right: 4rem;
-    background-image: url('../images/backgrounds/SLIANNA-background-2.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -68,8 +67,6 @@ body {
     gap: 2rem; /* spacing between boxes */
     flex-wrap: wrap; /* wrap boxes if screen is small */
 }
-
-
 .glass-box {
     width: 240px;
     display: inline-block;
@@ -81,7 +78,8 @@ body {
     border: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
     color: black;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    /* disabled for light mode
+    text-shadow: 0 1px 2px rgba(0,0,0,0.6); */
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
 }
@@ -89,8 +87,9 @@ body {
     transform: translateY(-3px) scale(1.02);
     box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
     background-color: rgba(225, 225, 225, 0.20);
+    /* disabled for light mode
     color: rgba(255, 255, 255, 0.8);
-    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+    text-shadow: 0 0 8px rgba(255, 255, 255, 0.8); */
 }
 
 .frosted-input {
@@ -183,14 +182,8 @@ body {
     font-size: 2rem;
     text-align: center;
 }
-
-.custom-navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    background-color: rgba(0, 0, 0, 0.6); /* transparency */
+.navbar img {
+    vertical-align: middle;
 }
 .frosted-navbar {
     position: fixed;
@@ -198,11 +191,20 @@ body {
     left: 0;
     width: 100%;
     z-index: 10;
-    background-color: rgba(225, 225, 225, 0.8); /* translucency */
+    background-color: rgba(225, 225, 225, 0.8); /* translucency; light mode by default */
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+}
+.frosted-navbar-dark {
+    background-color: rgba(0, 0, 0, 0.8); /* override for dark mode */
+}
+
+.navbar-brand img {
+    vertical-align: middle;
+    height: 25px;
+    width: auto;
 }
 
 .frosted-navbar .nav-link,
@@ -212,9 +214,11 @@ body {
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4),
     0 0 10px rgba(255, 255, 255, 0.2); */
     transition: color 0.3s ease, text-shadow 0.3s ease;
+    transform: translateY(-3px) scale(1.02);
     padding-left: 1.5rem;
     padding-right: 1.5rem;
-    padding-top: 15px;
+    display: flex;
+    align-items: center;
 }
 
 /* Needs adjusting
@@ -290,8 +294,9 @@ body {
     background-color: transparent;
     color: rgba(255, 255, 255, 0.85);
     border: none;
+    /* disabled for light mode
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4),
-    0 0 10px rgba(255, 255, 255, 0.2);
+    0 0 10px rgba(255, 255, 255, 0.2); */
     transition: all 0.3s ease;
     border-radius: 0;
 }
@@ -309,14 +314,29 @@ body {
 .frosted-button:hover {
     background-color: rgba(255, 255, 255, 0.2);
     color: #ffffff;
+    /* disabled for light mode
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4),
-    0 0 10px rgba(255, 255, 255, 0.2);
+    0 0 10px rgba(255, 255, 255, 0.2); */
 }
 
 .frosted-button.active {
     background-color: rgba(255, 255, 255, 0.85);
     color: rgba(0, 0, 0, 0.85);
+    /* disabled for light mode
     text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4),
-    0 0 10px rgba(255, 255, 255, 0.2);
+    0 0 10px rgba(255, 255, 255, 0.2); */
     z-index: 2;
 }
+
+.icon-bar {
+    width: 20px;
+    height: 2px;
+    background-color: black;
+    margin: 8px 0;
+    transition: 0.4s;
+}
+.navbar-toggler {
+    border: none;
+    box-shadow: none; /* also removes the ugly blue focus glow when clicked */
+}
+

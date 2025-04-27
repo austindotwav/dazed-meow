@@ -32,7 +32,9 @@ fetch('/navbar.html')
                     link.title = 'Page not available';
                     link.innerText += ' (Unavailable)';
                 });
+
         });
+
     })
     .catch(err => {
         console.error('Failed to load navbar:', err);
