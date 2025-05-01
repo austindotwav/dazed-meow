@@ -339,4 +339,52 @@ body {
     border: none;
     box-shadow: none; /* also removes the ugly blue focus glow when clicked */
 }
+.faq {
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: sans-serif;
+}
 
+.question {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.75em 1em;
+    border-radius: 50px;
+    background-color: rgba(225, 225, 225, 0.8);
+    color: black;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 1em;
+}
+
+.question:hover {
+    background-color: #e0e0e0;
+}
+
+.answer {
+    padding: 15px;
+    display: none;
+    background-color: #fafafa;
+    width: 100%;
+    max-width: 400px;
+    border-radius: 25px;
+    background-color: rgba(0, 0, 0, 0.4);
+    color: rgba(250, 250, 250, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 1em;
+}
+
+.active + .answer {
+    display: block;
+}
