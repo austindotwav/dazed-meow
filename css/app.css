@@ -60,6 +60,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    background-attachment: fixed;
 }
 
 .row {
@@ -97,6 +98,22 @@ body {
     max-width: 400px;
     padding: 0.75em 1em;
     border-radius: 50px;
+    background-color: rgba(225, 225, 225, 0.2);
+    color: black;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    font-size: 1rem;
+    outline: none;
+    margin-bottom: 1em;
+}
+.frosted-input-textarea {
+    width: 100%;
+    max-width: 400px;
+    padding: 0.75em 1em;
+    border-radius: 25px;
     background-color: rgba(225, 225, 225, 0.2);
     color: black;
     border: 1px solid rgba(255, 255, 255, 0.2);
@@ -337,7 +354,7 @@ body {
 }
 .navbar-toggler {
     border: none;
-    box-shadow: none; /* also removes the ugly blue focus glow when clicked */
+    box-shadow: none;
 }
 .faq {
     max-width: 600px;
@@ -356,7 +373,6 @@ body {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
     font-size: 1rem;
     outline: none;
     margin-bottom: 1em;
@@ -379,10 +395,14 @@ body {
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
     font-size: 1rem;
     outline: none;
     margin-bottom: 1em;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+}
+.faq-answer.open {
+    max-height: 500px;
 }
 
 .active + .answer {

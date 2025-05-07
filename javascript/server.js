@@ -1,8 +1,10 @@
+// original database local server implementation. not currently utilized due to server concerns.
+
 const express = require('express');
 const app = express();
 const sqlite3 = require('sqlite3').verbose();
 
-app.use(express.json()); // Allows server to read JSON body
+app.use(express.json());
 
 const db = new sqlite3.Database('/slianna-customer-db.sqlite');
 
@@ -11,7 +13,8 @@ db.run('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, 
 app.post('/submit', (req, res) => {
     const { email, password } = req.body;
 
-    db.run('INSERT INTO users (email, password) VALUES (?, ?)', [username, email], function(err) {
+    db.run('INSERT INTO users (email, password) VALUES (?, ?)',
+        [username, email], function(err) {
         if (err) {
             console.error('Database error:', err.message);
             return res.status(500).json({ message: 'Database error' });

@@ -1,4 +1,4 @@
-fetch('/navbar.html')
+fetch('navbar.html')
     .then(res => {
         if (!res.ok) throw new Error('Navbar not found');
         return res.text();
@@ -15,6 +15,7 @@ fetch('/navbar.html')
             // skip link check for hash links
             if (!url || url.startsWith('#')) return;
 
+            // if broken links are detected, they are made unavailable so that the user cannot click them
             fetch(url)
                 .then(res => {
                     if (!res.ok) {
@@ -25,6 +26,7 @@ fetch('/navbar.html')
                         link.innerText += ' (Unavailable)';
                     }
                 })
+                // if links bypass detection, throw an error message to prevent crashes
                 .catch(() => {
                     console.error(`Error checking link: ${url}`);
                     link.style.pointerEvents = 'none';
@@ -36,6 +38,7 @@ fetch('/navbar.html')
         });
 
     })
+    // if navbar cannot be identified, display error message in its place instead of blank space
     .catch(err => {
         console.error('Failed to load navbar:', err);
         document.getElementById('navbar').innerHTML = '<h2>Navigation not available</h2>';

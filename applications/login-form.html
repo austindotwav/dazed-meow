@@ -28,15 +28,18 @@
 <script src="/javascript/navbar-fetch.js"></script>
 
 <!-- Basic layout for login form -->
-
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-6 col-lg-4">
             <div class="glass-frame flex-column" style="padding: 2rem; height: auto;">
             <form id="create-account">
-                <h1 class="text-center mb-5">Create Account</h1>
+                <h1 class="display-4 text-center">Log In</h1>
+                <label for="email"></label>
                 <input type="email" id="email" class="frosted-input mb-3 w-100" placeholder="Email" required>
-                <input type="password" id="password" class="frosted-input mb-3 w-100" placeholder="Password" require>
+                <label for="password"></label>
+                <input type="password" id="password" class="frosted-input mb-3 w-100" placeholder="Password" required>
+                <!-- <div class="g-recaptcha" data-sitekey="my-key"></div>  this would use reCAPTCHA
+                to verify user isn't a bot -->
                 <button type="submit" class="frosted-button-single w-100">Create Account</button>
             </form>
             </div>
@@ -44,10 +47,12 @@
     </div>
 </div>
 
-<script src="/database/database-capture.js"></script>
+<!-- this script retrieves data entered, but currently does nothing with it.
+ it is simply to demonstrate how a form may work in production.-->
+<script src="/back_end/database/database-capture.js"></script>
 <script>
     document.getElementById("loginForm").addEventListener("submit", function(e) {
-        e.preventDefault(); // Stop the page from refreshing
+        e.preventDefault(); // prevents data loss by page refresh
         const email = document.getElementById("email").value;
         const password = document.getElementById("password").value;
 
@@ -59,7 +64,11 @@
             body: JSON.stringify({ email: email, password: password })
         })
 
-        // Data send to server by fetch()
+        /* data would be sent to the server via fetch() and compared to the
+         * encrypted database on a secure server. it would then either allow
+         * the user access the account page, or throw an error if information
+         * is incorrect.
+         */
     });
 </script>
 <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
