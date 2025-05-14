@@ -1,10 +1,12 @@
+// This Java code would run on the backend server to communicate with the database
+
 import java.sql.*;
 
 public class Main {
     public static void main(String[] args) {
 
-        String url="jdbc:sqlite" +
-                ";../database/slianna-customer-db.sqlite/";
+        String url="jdbc:mysql" +
+                "user/WebstormProjects/anna/back_end/database/slianna_customer_db.mysql/";
 
         try (Connection conn = DriverManager.getConnection(url)) {
             if (conn != null) {
